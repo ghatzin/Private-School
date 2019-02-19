@@ -6,6 +6,7 @@
 package school;
 
 import entities.*;
+import java.time.*;
 
 /**
  *
@@ -30,9 +31,12 @@ public class School {
         Student student2=new Student("Despoina","Chatzinikolaou","06/12/1979",2.500);
         Course course1=new Course("Junior Full Stack Developer",javaStream,fullTime,"2019-01-21","2019-03-31");
         Course course2=new Course("Junior Full Stack Developer",csharpStream,partTime,"2019-01-21","2019-03-31");
-        Assignment assignment1=new Assignment("Private School","Implementation of a private school","2019-02-25","23:00:00",0.80,0.20);
-        Assignment assignment2=new Assignment("Private Hospital","Implementation of a private hospital","2019-02-25","23:00:00",0.80,0.20);
-       
+        Assignment assignment1=new Assignment("Private School","Implementation of a private school","2019-02-18","23:00:00",0.80,0.20);
+        Assignment assignment2=new Assignment("Private Hospital","Implementation of a private hospital","2019-02-18","23:00:00",0.80,0.20);
+        Assignment assignment3=new Assignment("Private School","Implementation of a private school","2019-02-20","23:00:00",0.80,0.20);
+        Assignment assignment4=new Assignment("Private Hospital","Implementation of a private hospital","2019-02-21","23:00:00",0.80,0.20);
+        Assignment assignment5=new Assignment("Private School","Implementation of a private school","2019-02-22","23:00:00",0.80,0.20);
+        
         System.out.println(assignment1.getSubmissionDateTimeAsString());
         course1.enrollStudent(0, student1);
         course1.enrollStudent(1, student2);
@@ -49,8 +53,22 @@ public class School {
         
         course1.addAssignment(0, assignment1);
         course2.addAssignment(1, assignment2);
+        
+        StudentAsignments  sa=new StudentAsignments(student1); 
+        
+        sa.addAssignment(assignment1);
+        sa.addAssignment(assignment2);
+        sa.addAssignment(assignment3);
+        sa.addAssignment(assignment4);
+        sa.addAssignment(assignment5);
+        //LocalDate date=assignment1.getStudentsByAssignementDay("2019-02-24");
+        //System.out.println(date.getDayOfWeek());
+        
+        
 
-        printStudentsPerCourse(course1);
+        //printStudentsPerCourse(course1);
+        
+        sa.printAssignements("2019-02-18");
         
         
     }

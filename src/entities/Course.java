@@ -7,48 +7,37 @@ package entities;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Course {
-    
-   /* public enum Stream {JAVA,
-             CSHARP{
-                
-                @Override
-                public String toString(){
-                    return "C#"; 
-                }
-             }
-            };
-
-    public enum Type {FullTime,PartTime};*/
     
     private String title;
     private Stream stream;
     private Type type;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Student [] students;
-    private Assignment[] assignments;
+    private List<Student> students;
+    private List<Assignment> assignments;
     
     
     
     public Course(){
         
-        students=new Student[30];
-        assignments=new Assignment[2];
+        students=new ArrayList<Student>();
+        assignments=new ArrayList<Assignment>();
     }
     
     public Course(String title,Stream stream,Type type,String startDate,String endDate)
     {
         
-        students=new Student[30];
-        assignments=new Assignment[2];
+        this();
         this.title=title;
         this.stream=stream;
         this.type=type;
-        
         this.startDate=LocalDate.parse(startDate,DateTimeFormatter.ISO_LOCAL_DATE);
         this.endDate=LocalDate.parse(endDate, DateTimeFormatter.ISO_LOCAL_DATE);
+       
+    
     }
 
     public String getTitle() {
@@ -91,30 +80,26 @@ public class Course {
         this.endDate = endDate;
     }
     
-    public void enrollStudent(int index,Student student){
+    public void enrollStudent(Student student){
         
-        students[index]=student;
+        students.add(student);
     }
     
-    public Student[] getStudents(){
+    public List<Student> getStudents(){
         
         return students;
     }
     
-    public void addAssignment(int index,Assignment assignment)
+    public void addAssignment(Assignment assignment)
     {
-        assignments[index]=assignment;
+        assignments.add(assignment);
     }
  
-    public Assignment[] getAssignments(){
+    public List<Assignment> getAssignments(){
         return assignments;
     }
     
-    public Student getStudent(int index){
         
-        return students[index];
-    }
-    
     public String getStartDateAsString(){
         
         return getStartDate().getDayOfMonth()+" "+

@@ -92,8 +92,13 @@ public class Assignment {
         return submissionDate.getDayOfMonth()+" "+
                submissionDate.getMonth()+" "+
                submissionDate.getYear()+" "+
-               submissionTime.getHour()+" "+
-               submissionTime.getMinute();
+               submissionTime.toString();
+    }
+    
+    public String toString(){
+        
+        return this.title+" "+this.description+" "+this.oralMark+" "+
+               this.totalMark+" "+getSubmissionDateTimeAsString();
     }
     
 }
