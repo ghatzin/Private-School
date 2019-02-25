@@ -13,7 +13,7 @@ public class Student {
     
     private String firstName;
     private String lastName;
-    private String dateOfBirth;
+    private int dateOfBirth;
     private double tuitionFees;
     
     
@@ -21,7 +21,7 @@ public class Student {
         
     }
     
-    public Student(String firstName,String lastName,String dateOfBirth,double tuitionFees)
+    public Student(String firstName,String lastName,int dateOfBirth,double tuitionFees)
     {
        this.firstName=firstName;
        this.lastName=lastName;
@@ -45,11 +45,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getDateOfBirth() {
+    public int getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

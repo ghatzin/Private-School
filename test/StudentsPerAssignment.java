@@ -50,7 +50,7 @@ public class StudentsPerAssignment {
 
     @Test
     public void printStudentByAssignmentDate(){
-        Student [] students=course1.getStudents();
+        Student [] students=course1.getEnrolledStudents();
         Assignment[] assignments=course1.getAssignments();
         getStudentsByAssignmentDay(); 
         

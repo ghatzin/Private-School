@@ -12,32 +12,27 @@ import java.util.*;
 public class Course {
     
     private String title;
-    private Stream stream;
-    private Type type;
+    private String stream;
+    private String type;
     private LocalDate startDate;
     private LocalDate endDate;
     private List<Student> students;
     private List<Assignment> assignments;
+    private List<Trainer> trainers;
     
     
-    
-    public Course(){
-        
-        students=new ArrayList<Student>();
-        assignments=new ArrayList<Assignment>();
-    }
-    
-    public Course(String title,Stream stream,Type type,String startDate,String endDate)
+      
+    public Course(String title,String stream,String type,String startDate,String endDate)
     {
         
-        this();
+        this.students=new ArrayList<Student>();
+        this.assignments=new ArrayList<Assignment>();
+        this.trainers=new ArrayList<Trainer>();
         this.title=title;
         this.stream=stream;
         this.type=type;
         this.startDate=LocalDate.parse(startDate,DateTimeFormatter.ISO_LOCAL_DATE);
         this.endDate=LocalDate.parse(endDate, DateTimeFormatter.ISO_LOCAL_DATE);
-       
-    
     }
 
     public String getTitle() {
@@ -48,19 +43,19 @@ public class Course {
         this.title = title;
     }
 
-    public Stream getStream() {
+    public String getStream() {
         return stream;
     }
 
-    public void setStream(Stream stream) {
+    public void setStream(String stream) {
         this.stream = stream;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -80,9 +75,18 @@ public class Course {
         this.endDate = endDate;
     }
     
-    public void enrollStudent(Student student){
-        
+    public void addStudent(Student student){
         students.add(student);
+    }
+    
+    public void addTrainer(Trainer trainer)
+    {
+        trainers.add(trainer);
+    }
+    
+    public void addAssignment(Assignment assignment){
+        
+        assignments.add(assignment);
     }
     
     public List<Student> getStudents(){
@@ -90,16 +94,15 @@ public class Course {
         return students;
     }
     
-    public void addAssignment(Assignment assignment)
-    {
-        assignments.add(assignment);
+    public List<Trainer> getTrainers(){
+        
+        return trainers;
     }
- 
+    
     public List<Assignment> getAssignments(){
         return assignments;
     }
     
-        
     public String getStartDateAsString(){
         
         return getStartDate().getDayOfMonth()+" "+
@@ -115,5 +118,11 @@ public class Course {
                getEndDate().getYear();
     
     }
+    
+    public String toString(){
+        
+        return title+","+stream+","+type+","+getStartDate()+","+getEndDate();
+    }
+    
    
 }

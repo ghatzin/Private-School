@@ -50,7 +50,8 @@ public class Trainer {
         this.subject = subject;
     }
     
-     
-    
-    
+    public String toString()
+    {
+        return firstName+" "+lastName;
+    }
 }
